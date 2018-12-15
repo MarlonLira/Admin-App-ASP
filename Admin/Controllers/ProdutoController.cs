@@ -2,7 +2,9 @@
 using Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,7 +23,8 @@ namespace Admin.Controllers
         // GET: Produto/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var produto = con.Produto.Find(id);
+            return View(produto);
         }
 
         public ActionResult Back()
@@ -58,9 +61,21 @@ namespace Admin.Controllers
         }
 
         // GET: Produto/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var produto = con.Produto.Find(id);
+
+            if(produto == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(produto);
         }
 
         // POST: Produto/Edit/5
@@ -72,13 +87,12 @@ namespace Admin.Controllers
                 // TODO: Add update logic here
                 if (ModelState.IsValid)
                 {
-                    con.Produto.Add(produto);
+                    con.Entry(produto).State = EntityState.Modified;
                     con.SaveChanges();
-
                     return RedirectToAction("Index");
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Produto");
             }
             catch
             {

@@ -1,0 +1,54 @@
+﻿@model Admin.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_mainView.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Detalhes do Produto
+        </h1>
+        <div class="box">
+            <hr />
+            <dl class="box-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Quantidade)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Valor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Valor)
+                </dd>
+
+            </dl>
+            <p>
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Voltar", "Index")
+            </p>
+
+        </div>
+    </section>
+</div>
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
