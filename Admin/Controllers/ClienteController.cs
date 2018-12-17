@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Admin.Context;
+using Admin.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,16 +12,18 @@ namespace Admin.Controllers
 {
     public class ClienteController : Controller
     {
+        private AdminContext con = new AdminContext();
         // GET: Cliente
         public ActionResult Index()
         {
-            return View();
+            return View(con.Cliente.ToList());
         }
 
         // GET: Cliente/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var cliente = con.Cliente.Find(id);
+            return View(cliente);
         }
 
         // GET: Cliente/Create
@@ -28,35 +34,59 @@ namespace Admin.Controllers
 
         // POST: Cliente/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Cliente cliente)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    con.Cliente.Add(cliente);
+                    con.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Create");
             }
             catch
             {
-                return View();
+                return View(cliente);
             }
         }
 
         // GET: Cliente/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var cliente = con.Cliente.Find(id);
+
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(cliente);
         }
 
         // POST: Cliente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Cliente cliente)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    con.Entry(cliente).State = EntityState.Modified;
+                    con.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                return RedirectToAction("Cliente");
             }
             catch
             {

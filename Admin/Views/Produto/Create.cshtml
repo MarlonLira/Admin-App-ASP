@@ -12,39 +12,37 @@
         <div class="col-md-6">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cadastrar Produtos</h3>
+                    <h3 class="box-title">Cadastrar Produto</h3>
                 </div>
-                <form class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="box-body">
-                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="form-group">
-                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="box-body">
+                    <form class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-cube"></i></span>
+                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control ", @placeholder = "Nome" } })
                             @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-
-                    <div class="box-body">
-                        @Html.LabelFor(model => model.Quantidade, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="form-group">
-                            @Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control" } })
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon">N</span>
+                            @Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control", @placeholder = "Quantidade" } })
                             @Html.ValidationMessageFor(model => model.Quantidade, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-
-                    <div class="box-body">
-                        @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="form-group">
-                            @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                            @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control", @placeholder = "Valor" } })
                             @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
+                            <span class="input-group-addon">.00</span>
                         </div>
-                    </div>
 
-                    <div class="box-footer">
-                        <button type="submit" value="Back" class="btn btn-default">@Html.ActionLink("Voltar", "Index")</button>
-                        <button type="submit" value="Create" class="btn btn-info pull-right">Cadastrar</button>
-                    </div>
-                </form>
+                        <br>
+                        <div class="box-footer">
+                            <button type="submit" value="Back" class="btn btn-default">@Html.ActionLink("Voltar", "Index")</button>
+                            <button type="submit" value="Create" class="btn btn-info pull-right">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     <!-- /.control-sidebar -->

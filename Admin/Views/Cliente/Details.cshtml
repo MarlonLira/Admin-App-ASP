@@ -1,17 +1,16 @@
-﻿@model Admin.Models.Produto
+﻿@model Admin.Models.Cliente
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_mainView.cshtml";
 }
 
-
 <br />
 <div class="col-md-6">
     <section class="content-header">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Detalhes do Produto</h3>
+                <h3 class="box-title">Detalhes do Cliente</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
@@ -24,17 +23,23 @@
 
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Quantidade:</th>
-                        <th>@Html.DisplayFor(model => model.Quantidade)</th>
+                        <th>Cpf:</th>
+                        <th>@Html.DisplayFor(model => model.Cpf)</th>
                     </tr>
 
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Valor:</th>
-                        <th>@Html.DisplayFor(model => model.Valor)</th>
+                        <th>Email:</th>
+                        <th>@Html.DisplayFor(model => model.Email)</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Telefone:</th>
+                        <th>@Html.DisplayFor(model => model.Telefone)</th>
                     </tr>
                 </table>
-                
+
                 <div class="box-footer">
                     <button type="submit" value="Back" class="btn btn-default">@Html.ActionLink("Voltar", "Index")</button>
                     <button type="submit" value="Create" class="btn btn-default pull-right">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })</button>
@@ -43,10 +48,7 @@
         </div>
     </section>
 </div>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
 <div class="control-sidebar-bg"></div>
-
-
-

@@ -27,12 +27,6 @@ namespace Admin.Controllers
             return View(produto);
         }
 
-        public ActionResult Back()
-        {
-            HomeController Home = new HomeController();
-            return View(Home.Index());
-        }
-
         // GET: Produto/Create
         public ActionResult Create()
         {

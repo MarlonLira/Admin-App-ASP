@@ -14,7 +14,11 @@ namespace Admin
                       "~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js",
                       "~/Content/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
                       "~/Content/bower_components/fastclick/lib/fastclick.js",
+                      "~/Content/bower_components/select2/dist/js/select2.full.min.js",
                       "~/Content/dist/js/adminlte.min.js",
+                      "~/Content/plugins/input-mask/jquery.inputmask.js",
+                      "~/Content/plugins/input-mask/jquery.inputmask.date.extensions.js",
+                      "~/Content/plugins/input-mask/jquery.inputmask.extensions.js",
                       "~/Content/dist/js/demo.js"
                       ));
 
