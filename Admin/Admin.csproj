@@ -7257,6 +7257,20 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model.Dao\Model.Dao.csproj">
+      <Project>{3fe7f1af-e7a8-43c1-94e3-3cba9f8ee1f1}</Project>
+      <Name>Model.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model.Entity\Model.Entity.csproj">
+      <Project>{c791a2f2-9ed6-4dce-8947-9339997ad55d}</Project>
+      <Name>Model.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model.Neg\Model.Neg.csproj">
+      <Project>{4963df82-8386-4bea-bc86-317dfe4c342e}</Project>
+      <Name>Model.Neg</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
